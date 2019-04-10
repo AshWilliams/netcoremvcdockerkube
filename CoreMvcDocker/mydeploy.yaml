@@ -12,6 +12,6 @@ spec:
       containers:
         - image: "ashwilliams/coremvcdocker"
           imagePullPolicy: Always
-          name: dotnetlinux
+          name: coremvcdocker
           ports:
             - containerPort: 80
