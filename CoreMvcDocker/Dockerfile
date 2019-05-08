@@ -4,10 +4,11 @@ EXPOSE 80
 
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY ["CoreMvcDocker/CoreMvcDocker.csproj", "CoreMvcDocker/"]
+COPY ["CoreMvcDocker.csproj", "CoreMvcDocker/"]
 RUN dotnet restore "CoreMvcDocker/CoreMvcDocker.csproj"
-COPY . .
-WORKDIR "/src/CoreMvcDocker"
+COPY . "CoreMvcDocker"
+WORKDIR "CoreMvcDocker"
+#RUN dir for testing
 RUN dotnet build "CoreMvcDocker.csproj" -c Release -o /app
 
 FROM build AS publish
